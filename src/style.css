@@ -43,3 +43,21 @@ ul {
 input {
   margin-right: 10px;
 }
+
+.clear-all {
+  background-color: #f1f2f5;
+  padding: 15px;
+  text-align: center;
+}
+
+.clear-all a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.5;
+}
+
+.clear-all a:hover {
+  text-decoration: underline;
+  color: black;
+  opacity: 1;
+}
