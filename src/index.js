@@ -1,14 +1,20 @@
-import _ from 'lodash';
+import 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const mainList = document.getElementById('main-list');
+// const listItem = document.createElement('li');
+// listItem.innerHTML = 'Testing';
+// mainList.appendChild(listItem);
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const myTasks = [];
 
-  return element;
+function Task(description, completed, index) {
+  this.description = description;
+  this.completed = completed;
+  this.index = index;
 }
 
-document.body.appendChild(component());
+function createTasks() {
+  const task = new Task('Testing', true, 0);
+  myTasks.push(task);
+}
