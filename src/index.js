@@ -1,14 +1,36 @@
-import _ from 'lodash';
+import 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const mainList = document.getElementById('main-list');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const myTasks = [{
+  description: 'Read ES6 Modules',
+  completed: true,
+  index: 0,
+},
+{
+  description: 'Read Webpack',
+  completed: true,
+  index: 1,
+},
+{
+  description: 'List structure project',
+  completed: false,
+  index: 2,
+}];
 
-  return element;
+function displayTasks() {
+  let content = '';
+  for (let i = 0; i < myTasks.length; i += 1) {
+    content = `${myTasks[i].description}`;
+
+    const listItem = document.createElement('li');
+    listItem.innerText = content;
+    listItem.className = 'list-item';
+    mainList.appendChild(listItem);
+  }
 }
 
-document.body.appendChild(component());
+window.addEventListener('load', () => {
+  displayTasks();
+});
