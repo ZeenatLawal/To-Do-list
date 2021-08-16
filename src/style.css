@@ -1,7 +1,26 @@
 body {
-  background-color: bisque;
+  background-color: #f1f2f5;
 }
 
-.hello {
-  color: red;
+.card {
+  background-color: white;
+  width: 35%;
+  margin: 100px auto 0 auto;
+  box-shadow: black;
 }
+
+#main-list {
+  color: black;
+  list-style: none;
+  padding: 0;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+.list-item {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+} 
