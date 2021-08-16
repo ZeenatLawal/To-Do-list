@@ -9,6 +9,16 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-head i {
+  font-size: 10px;
+}
+
 #main-list {
   color: black;
   list-style: none;
