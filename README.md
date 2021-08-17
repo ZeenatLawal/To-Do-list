@@ -1,6 +1,8 @@
 # To-Do list
 > This is a simple HTML list of To Do tasks.
 
+![screenshot](./todo.png)
+
 ## Built With
 
 - HTML
