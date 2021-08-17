@@ -10,10 +10,12 @@ body {
 }
 
 .list-head,
-.list-item {
+.list-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 #main-list {
@@ -27,9 +29,8 @@ ul {
   margin: 0;
 }
 
-.list-item {
-  padding: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+.fa-ellipsis-v {
+  cursor: move;
 }
 
 .list-input {
