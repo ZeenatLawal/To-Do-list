@@ -1,6 +1,6 @@
 import 'lodash';
 import './style.css';
-// import { drag, drop, allowDrop } from './drag-drop.js';
+import { drag, drop, allowDrop } from './drag-drop.js';
 
 const mainList = document.getElementById('main-list');
 
@@ -21,7 +21,6 @@ const myTasks = [{
 }];
 
 function displayTasks() {
-  // let content = '';
   for (let i = 0; i < myTasks.length; i += 1) {
     const content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
 
@@ -29,15 +28,9 @@ function displayTasks() {
     listItem.innerHTML = `${content}`;
     listItem.className = 'list-items';
     listItem.setAttribute('draggable', 'true');
-    listItem.addEventListener('dragstart', () => {
-      console.log('drag start');
-    });
-    listItem.addEventListener('dragover', () => {
-      console.log('drag over');
-    });
-    // listItem.addEventListener('drop', () => {
-    //   console.log('dropped');
-    // });
+    listItem.addEventListener('dragstart', drag);
+    listItem.addEventListener('dragover', allowDrop);
+    listItem.addEventListener('drop', drop);
     mainList.appendChild(listItem);
   }
 }
