@@ -21,6 +21,10 @@ const myTasks = [{
   index: 2,
 }];
 
+function saveToStorage(taskArray) {
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+}
+
 function displayTasks() {
   for (let i = 0; i < myTasks.length; i += 1) {
     const content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
