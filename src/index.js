@@ -1,5 +1,6 @@
 import 'lodash';
 import './style.css';
+// import { drag, drop, allowDrop } from './drag-drop.js';
 
 const mainList = document.getElementById('main-list');
 
@@ -26,7 +27,17 @@ function displayTasks() {
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
-    listItem.className = 'list-item';
+    listItem.className = 'list-items';
+    listItem.setAttribute('draggable', 'true');
+    listItem.addEventListener('dragstart', () => {
+      console.log('drag start');
+    });
+    listItem.addEventListener('dragover', () => {
+      console.log('drag over');
+    });
+    // listItem.addEventListener('drop', () => {
+    //   console.log('dropped');
+    // });
     mainList.appendChild(listItem);
   }
 }
