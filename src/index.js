@@ -20,12 +20,11 @@ const myTasks = [{
 }];
 
 function displayTasks() {
-  let content = '';
   for (let i = 0; i < myTasks.length; i += 1) {
-    content = `${myTasks[i].description}`;
+    const content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
 
     const listItem = document.createElement('li');
-    listItem.innerText = content;
+    listItem.innerHTML = `${content}`;
     listItem.className = 'list-item';
     mainList.appendChild(listItem);
   }
