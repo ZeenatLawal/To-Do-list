@@ -16,10 +16,6 @@ body {
   align-items: center;
 }
 
-.fas {
-  font-size: 10px;
-}
-
 #main-list {
   color: black;
   list-style: none;
@@ -32,7 +28,7 @@ ul {
 }
 
 .list-item {
-  padding: 10px;
+  padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -42,4 +38,24 @@ ul {
 
 input {
   margin-right: 10px;
+}
+
+.clear-all {
+  background-color: #f1f2f5;
+  padding: 15px;
+  text-align: center;
+}
+
+.fas,
+.clear-all a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.4;
+}
+
+.fas:hover,
+.clear-all a:hover {
+  text-decoration: underline;
+  color: black;
+  opacity: 0.8;
 }
