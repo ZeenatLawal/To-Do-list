@@ -1,16 +1,18 @@
+/* eslint-disable no-loop-func */
 import 'lodash';
 import './style.css';
+import status from './status.js';
 
 const mainList = document.getElementById('main-list');
 
 const myTasks = [{
   description: 'Read ES6 Modules',
-  completed: true,
+  completed: false,
   index: 0,
 },
 {
   description: 'Read Webpack',
-  completed: true,
+  completed: false,
   index: 1,
 },
 {
@@ -27,9 +29,23 @@ function displayTasks() {
     listItem.innerHTML = `${content}`;
     listItem.className = 'list-item';
     mainList.appendChild(listItem);
+
+    const listInput = listItem.firstChild;
+    const checkbox = listInput.firstChild;
+
+    if (myTasks[i].completed) {
+      checkbox.classList.add('checked');
+      checkbox.checked = true;
+      checkbox.addEventListener('change', (e) => {
+        status(e, myTasks[i]);
+      });
+    } else {
+      checkbox.classList.add('unchecked');
+      checkbox.addEventListener('change', (e) => {
+        status(e, myTasks[i]);
+      });
+    }
   }
 }
 
-window.addEventListener('load', () => {
-  displayTasks();
-});
+window.onload = displayTasks();
