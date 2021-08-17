@@ -42,11 +42,13 @@ function displayTasks() {
       checkbox.checked = true;
       checkbox.addEventListener('change', (e) => {
         status(e, myTasks[i]);
+        saveToStorage(myTasks);
       });
     } else {
       checkbox.classList.add('unchecked');
       checkbox.addEventListener('change', (e) => {
         status(e, myTasks[i]);
+        saveToStorage(myTasks);
       });
     }
   }
@@ -56,6 +58,8 @@ function getFromStorage() {
   const local = localStorage.getItem('tasks');
   if (local) {
     myTasks = JSON.parse(local);
+    displayTasks();
+  } else {
     displayTasks();
   }
 }
