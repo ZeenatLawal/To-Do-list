@@ -5,7 +5,7 @@ import status from './status.js';
 
 const mainList = document.getElementById('main-list');
 
-const myTasks = [{
+let myTasks = [{
   description: 'Read ES6 Modules',
   completed: false,
   index: 0,
@@ -52,4 +52,12 @@ function displayTasks() {
   }
 }
 
-window.onload = displayTasks();
+function getFromStorage() {
+  const local = localStorage.getItem('tasks');
+  if (local) {
+    myTasks = JSON.parse(local);
+    displayTasks();
+  }
+}
+
+window.onload = getFromStorage();
