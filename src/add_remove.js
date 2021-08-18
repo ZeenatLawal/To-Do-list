@@ -7,7 +7,7 @@ function addTask(taskArray) {
   };
   taskArray.push(task);
   localStorage.setItem('tasks', JSON.stringify(taskArray));
-  inputList.innerHTML = '';
+  inputList.value = '';
 }
 
 export default addTask;
