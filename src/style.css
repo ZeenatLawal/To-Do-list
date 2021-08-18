@@ -18,6 +18,14 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+#inputText {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.6;
+}
+
 #main-list {
   color: black;
   list-style: none;
