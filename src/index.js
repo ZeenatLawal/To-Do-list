@@ -1,5 +1,4 @@
 /* eslint-disable no-loop-func */
-import 'lodash';
 import './style.css';
 import status from './status.js';
 
@@ -19,6 +18,11 @@ let myTasks = [{
   description: 'List structure project',
   completed: false,
   index: 2,
+},
+{
+  description: 'Add milestone 2 project',
+  completed: false,
+  index: 3,
 }];
 
 function saveToStorage(taskArray) {
