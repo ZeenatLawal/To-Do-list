@@ -7,14 +7,16 @@ const mainList = document.getElementById('main-list');
 
 let myTasks = [];
 
+// Save to local storage
 function saveToStorage(taskArray) {
   localStorage.setItem('tasks', JSON.stringify(taskArray));
 }
 
+// Display Tasks
 function displayTasks() {
   mainList.innerHTML = '';
   for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p id="description">${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
+    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTasks[i].description}</p></div><span><i class="far fa-edit"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -24,6 +26,7 @@ function displayTasks() {
     const listInput = listItem.firstChild;
     const checkbox = listInput.firstChild;
 
+    // Update checkbox status
     if (myTasks[i].completed) {
       checkbox.classList.add('checked');
       checkbox.checked = true;
@@ -41,12 +44,14 @@ function displayTasks() {
   }
 }
 
+// Add new task with enter icon
 const enterBtn = document.getElementById('enter');
 enterBtn.onclick = () => {
   addTask(myTasks);
   displayTasks();
 };
 
+// Add new task with enter keypress
 const inputList = document.getElementById('inputList');
 inputList.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -55,6 +60,7 @@ inputList.addEventListener('keypress', (e) => {
   }
 });
 
+// Get from local storage
 function getFromStorage() {
   const local = JSON.parse(localStorage.getItem('tasks'));
   if (local) {
