@@ -1,18 +1,17 @@
 /* eslint-disable no-loop-func */
 import './style.css';
 import status from './status.js';
+import { addTask, saveToStorage } from './add_remove.js';
 
 const mainList = document.getElementById('main-list');
 
 let myTasks = [];
 
-function saveToStorage(taskArray) {
-  localStorage.setItem('tasks', JSON.stringify(taskArray));
-}
-
 function displayTasks() {
+  mainList.innerHTML = '';
+  let content = '';
   for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
+    content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -39,14 +38,15 @@ function displayTasks() {
   }
 }
 
-function getFromStorage() {
-  const local = localStorage.getItem('tasks');
+const enterBtn = document.getElementById('enter');
+enterBtn.onclick = () => {
+  addTask(myTasks);
+  displayTasks();
+};
+
+window.onload = () => {
+  const local = localStorage.getItem('myTasks');
   if (local) {
     myTasks = JSON.parse(local);
-    displayTasks();
-  } else {
-    displayTasks();
   }
-}
-
-window.onload = getFromStorage();
+};
