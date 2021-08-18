@@ -1,7 +1,3 @@
-function saveToStorage(taskArray) {
-  localStorage.setItem('myTasks', JSON.stringify(taskArray));
-}
-
 function addTask(taskArray) {
   const inputList = document.getElementById('inputList');
   const task = {
@@ -10,12 +6,8 @@ function addTask(taskArray) {
     index: taskArray.length + 1,
   };
   taskArray.push(task);
-  saveToStorage(taskArray);
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
   inputList.innerHTML = '';
 }
 
-function getFromStorage() {
-  JSON.parse(localStorage.getItem('myTasks'));
-}
-
-export { addTask, saveToStorage, getFromStorage };
+export default addTask;
