@@ -4,7 +4,7 @@ body {
 
 .card {
   background-color: white;
-  width: 35%;
+  width: 45%;
   margin: 100px auto 0 auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -24,6 +24,11 @@ body {
   font-size: 1rem;
   font-style: italic;
   opacity: 0.6;
+  width: 100%;
+}
+
+#description {
+  padding: 0 10px;
 }
 
 .fa-level-down-alt {

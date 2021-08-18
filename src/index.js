@@ -14,7 +14,7 @@ function saveToStorage(taskArray) {
 function displayTasks() {
   mainList.innerHTML = '';
   for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p>${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
+    const content = `<div class="list-input"><input type="checkbox"> <p id="description">${myTasks[i].description}</p></div><span><i class="fas fa-ellipsis-v"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -46,6 +46,14 @@ enterBtn.onclick = () => {
   addTask(myTasks);
   displayTasks();
 };
+
+const inputList = document.getElementById('inputList');
+inputList.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    addTask(myTasks);
+    displayTasks();
+  }
+});
 
 function getFromStorage() {
   const local = JSON.parse(localStorage.getItem('tasks'));
