@@ -4,26 +4,7 @@ import status from './status.js';
 
 const mainList = document.getElementById('main-list');
 
-let myTasks = [{
-  description: 'Read ES6 Modules',
-  completed: false,
-  index: 0,
-},
-{
-  description: 'Read Webpack',
-  completed: false,
-  index: 1,
-},
-{
-  description: 'List structure project',
-  completed: false,
-  index: 2,
-},
-{
-  description: 'Add milestone 2 project',
-  completed: false,
-  index: 3,
-}];
+let myTasks = [];
 
 function saveToStorage(taskArray) {
   localStorage.setItem('tasks', JSON.stringify(taskArray));
