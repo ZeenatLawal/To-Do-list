@@ -26,6 +26,11 @@ body {
   opacity: 0.6;
 }
 
+.fa-level-down-alt {
+  transform: rotate(90deg);
+  font-size: 12px;
+}
+
 #main-list {
   color: black;
   list-style: none;
