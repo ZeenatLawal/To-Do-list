@@ -14,14 +14,16 @@ function editTask(icon, text, i) {
   icon.addEventListener('click', () => {
     text.setAttribute('contenteditable', 'true');
     text.classList.add('inputEdit');
-    icon.style.display = 'none';
+    icon.classList.remove('fa-edit');
+    icon.classList.add('fa-trash-alt');
     const data = JSON.parse(localStorage.getItem('tasks'));
     data[i].description = text.innerHTML;
     text.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         data[i].description = text.innerHTML;
         localStorage.setItem('tasks', JSON.stringify(data));
-        icon.style.display = 'block';
+        icon.classList.remove('fa-trash-alt');
+        icon.classList.add('fa-edit');
         text.classList.remove('inputEdit');
         text.setAttribute('contenteditable', 'false');
       }
