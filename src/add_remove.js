@@ -34,6 +34,9 @@ function editTask(icon, text, i) {
 
 function deleteTask(taskArray, i) {
   taskArray.splice(i, 1);
+  taskArray.forEach((task) => {
+    task.index = taskArray.indexOf(task) + 1;
+  });
   localStorage.setItem('tasks', JSON.stringify(taskArray));
   window.location.reload();
 }
