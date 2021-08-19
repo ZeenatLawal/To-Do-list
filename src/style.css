@@ -27,6 +27,16 @@ body {
   width: 100%;
 }
 
+.inputEdit {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+  width: 100%;
+  background-color: rgb(240, 218, 190);
+}
+
 .description {
   padding: 0 10px;
 }

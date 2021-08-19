@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import './style.css';
 import status from './status.js';
-import addTask from './add_remove.js';
+import { addTask, editTask } from './add_remove.js';
 
 const mainList = document.getElementById('main-list');
 
@@ -25,6 +25,8 @@ function displayTasks() {
 
     const listInput = listItem.firstChild;
     const checkbox = listInput.firstChild;
+    const para = listInput.lastChild;
+    const editIcon = listInput.nextSibling.firstChild;
 
     // Update checkbox status
     if (myTasks[i].completed) {
@@ -41,6 +43,8 @@ function displayTasks() {
         saveToStorage(myTasks);
       });
     }
+
+    editTask(editIcon, para, i);
   }
 }
 
