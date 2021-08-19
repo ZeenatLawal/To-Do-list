@@ -4,7 +4,7 @@ body {
 
 .card {
   background-color: white;
-  width: 35%;
+  width: 45%;
   margin: 100px auto 0 auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -16,6 +16,34 @@ body {
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#inputList {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.6;
+  width: 100%;
+}
+
+.inputEdit {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+  width: 100%;
+  background-color: rgb(240, 218, 190);
+}
+
+.description {
+  padding: 0 10px;
+}
+
+.fa-level-down-alt {
+  transform: rotate(90deg);
+  font-size: 12px;
 }
 
 #main-list {
@@ -44,6 +72,7 @@ input {
 }
 
 .fas,
+.far,
 .clear-all a {
   text-decoration: none;
   color: black;
@@ -51,6 +80,7 @@ input {
 }
 
 .fas:hover,
+.far:hover,
 .clear-all a:hover {
   text-decoration: underline;
   color: black;
