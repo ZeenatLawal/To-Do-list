@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import './style.css';
 import status from './status.js';
-import { addTask, editTask } from './add_remove.js';
+import { addTask, editTask, deleteTask } from './add_remove.js';
 
 const mainList = document.getElementById('main-list');
 
@@ -16,7 +16,7 @@ function saveToStorage(taskArray) {
 function displayTasks() {
   mainList.innerHTML = '';
   for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTasks[i].description}</p></div><span><i class="far fa-edit"></i></span>`;
+    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTasks[i].description}</p></div><span><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -27,6 +27,8 @@ function displayTasks() {
     const checkbox = listInput.firstChild;
     const para = listInput.lastChild;
     const editIcon = listInput.nextSibling.firstChild;
+    const trashIcon = editIcon.nextSibling;
+    trashIcon.style.display = 'none';
 
     // Update checkbox status
     if (myTasks[i].completed) {
@@ -44,7 +46,12 @@ function displayTasks() {
       });
     }
 
+    // Edit task
     editTask(editIcon, para, i);
+
+    trashIcon.addEventListener('click', () => {
+      deleteTask(myTasks, i);
+    });
   }
 }
 

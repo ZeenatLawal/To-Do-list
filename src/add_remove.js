@@ -11,19 +11,20 @@ function addTask(taskArray) {
 }
 
 function editTask(icon, text, i) {
+  const trashIcon = icon.nextSibling;
   icon.addEventListener('click', () => {
     text.setAttribute('contenteditable', 'true');
     text.classList.add('inputEdit');
-    icon.classList.remove('fa-edit');
-    icon.classList.add('fa-trash-alt');
+    icon.style.display = 'none';
+    trashIcon.style.display = 'block';
     const data = JSON.parse(localStorage.getItem('tasks'));
     data[i].description = text.innerHTML;
     text.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         data[i].description = text.innerHTML;
         localStorage.setItem('tasks', JSON.stringify(data));
-        icon.classList.remove('fa-trash-alt');
-        icon.classList.add('fa-edit');
+        trashIcon.style.display = 'none';
+        icon.style.display = 'block';
         text.classList.remove('inputEdit');
         text.setAttribute('contenteditable', 'false');
       }
@@ -31,4 +32,10 @@ function editTask(icon, text, i) {
   });
 }
 
-export { addTask, editTask };
+function deleteTask(taskArray, i) {
+  taskArray.splice(i, 1);
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+  window.location.reload();
+}
+
+export { addTask, editTask, deleteTask };
