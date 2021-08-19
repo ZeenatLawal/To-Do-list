@@ -1,9 +1,12 @@
 /* eslint-disable no-loop-func */
 import './style.css';
 import status from './status.js';
-import { addTask, editTask, deleteTask } from './add_remove.js';
+import {
+  addTask, editTask, deleteTask, clearChecked,
+} from './add_remove.js';
 
 const mainList = document.getElementById('main-list');
+const clearAll = document.getElementById('clear');
 
 let myTasks = [];
 
@@ -54,6 +57,10 @@ function displayTasks() {
     });
   }
 }
+
+clearAll.addEventListener('click', () => {
+  clearChecked(myTasks);
+});
 
 // Add new task with enter icon
 const enterBtn = document.getElementById('enter');

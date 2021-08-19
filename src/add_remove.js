@@ -41,4 +41,15 @@ function deleteTask(taskArray, i) {
   window.location.reload();
 }
 
-export { addTask, editTask, deleteTask };
+function clearChecked(taskArray) {
+  taskArray = taskArray.filter((task) => !task.completed);
+  taskArray.forEach((task) => {
+    task.index = taskArray.indexOf(task) + 1;
+  });
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+  window.location.reload();
+}
+
+export {
+  addTask, editTask, deleteTask, clearChecked,
+};
