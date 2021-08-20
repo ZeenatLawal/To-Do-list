@@ -1,7 +1,7 @@
 # To-Do list
-> This is a simple HTML list of To Do tasks.
+> This is a simple To-Do list website that allows users to add new tasks, mark completed tasks, edit existing tasks, remove tasks and clear all completed tasks.
 
-![screenshot](./todo.png)
+![screenshot](./images/todo-list.png)
 
 ## Built With
 
