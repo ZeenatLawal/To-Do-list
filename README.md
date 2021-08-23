@@ -10,6 +10,10 @@
 - JavaScript(ES6)
 - Webpack
 
+## Live demo
+
+[Live demo link](https://zeenatlawal.github.io/To-Do-list/)
+
 ## Getting Started
 
 ### To get a local copy run the following steps:
