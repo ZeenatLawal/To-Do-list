@@ -54,6 +54,7 @@ function displayTasks() {
 
     trashIcon.addEventListener('click', () => {
       deleteTask(myTasks, i);
+      window.location.reload();
     });
   }
 }

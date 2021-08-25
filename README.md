@@ -9,6 +9,7 @@
 - CSS
 - JavaScript(ES6)
 - Webpack
+- Jest Library
 
 ## Live demo
 
@@ -25,15 +26,24 @@
 - Create a branch to work on
 - Run `npm install`
 - Run `npm run build`
-- Run `npm run start`
+- Run `npm run start` to launch the server.
+- Run `npm run test` to run the test cases.
 
-## Author
+## Author 1
 
 👤 **Zeenat Lawal**
 
 - GitHub: [@ZeenatLawal](https://github.com/ZeenatLawal)
 - Twitter: [@lawal_zeenat](https://twitter.com/lawal_zeenat)
 - LinkedIn: [Zeenat Lawal](https://www.linkedin.com/in/zeenatlawal/)
+
+## Author 2
+
+👤 **Adedamola Shittu**
+
+- GitHub: [@dammyShittu](https://github.com/DammyShittu/)
+- Twitter: [@aded_shittu](https://twitter.com/aded_shittu/)
+- LinkedIn: [Adedamola Shittu](linkedin.com/in/adedamola-shittu-3ab465172/)
 
 ## 🤝 Contributing
 
