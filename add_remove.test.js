@@ -3,49 +3,27 @@
  */
 import { addTask } from './src/add_remove.js';
 
-// class LocalStorageMock {
-//   constructor() {
-//     this.store = {};
-//   }
-
-//   clear() {
-//     this.store = {};
-//   }
-
-//   getItem(key) {
-//     return this.store[key] || null;
-//   }
-
-//   setItem(key, value) {
-//     this.store[key] = String(value);
-//   }
-
-//   removeItem(key) {
-//     delete this.store[key];
-//   }
-// };
-
-// global.localStorage = new LocalStorageMock;
-
-
 describe('adding a task to the list', () => {
-  test('Add one new item to the list', () => {
-    document.body.innerHTML = `<div class="card">
-      <div class="list-head">
-        <input type="text" placeholder="Add to your list..." id="inputList">
-      </div>
-      <div>
-        <ul id="main-list">
-        </ul>
-      </div>
-    </div>`;
-    // const inputList = document.getElementById('inputList');
-    // inputList.value = 'Zeenat';
-    const task = [];
-    addTask(task);
-    expect(task).toHaveLength(1);
+  document.body.innerHTML = '<input type="text" placeholder="Add to your list..." id="inputList">';
+  const inputList = document.getElementById('inputList');
+  inputList.value = 'Zeenat';
+  const myTasks = [];
+
+  test('Add two new tasks to the list', () => {
+    addTask(myTasks);
+    addTask(myTasks);
+    expect(myTasks).toHaveLength(2);
+  });
+
+  test('Check description of first task', () => {
+    expect(myTasks[0].description).toBe('Zeenat');
+  });
+
+  test('Check status of first task', () => {
+    expect(myTasks[0].completed).toBe(false);
+  });
+
+  test('Check index of second task', () => {
+    expect(myTasks[1].index).toBe(2);
   });
 });
-
-// jest.spyOn(localStorage, 'setItem');
-// localStorage.setItem = jest.fn();
