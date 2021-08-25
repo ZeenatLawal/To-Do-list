@@ -38,7 +38,6 @@ function deleteTask(taskArray, i) {
     task.index = taskArray.indexOf(task) + 1;
   });
   localStorage.setItem('tasks', JSON.stringify(taskArray));
-  window.location.reload();
 }
 
 function clearChecked(taskArray) {

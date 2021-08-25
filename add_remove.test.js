@@ -28,31 +28,30 @@ describe('adding a task to the list', () => {
   });
 });
 
-
 describe('deleting a task from the list', () => {
   const myTasks = [
     {
-    description: 'Walk The Dog',
-    completed: false,
-    index: 1,
+      description: 'Walk The Dog',
+      completed: false,
+      index: 1,
     },
 
     {
-    description: 'Do Laundry',
-    completed: false,
-    index: 2,
+      description: 'Do Laundry',
+      completed: false,
+      index: 2,
     },
 
     {
-    description: 'Join Stand-up',
-    completed: false,
-    index: 3,
+      description: 'Join Stand-up',
+      completed: false,
+      index: 3,
     },
 
     {
-    description: 'Write Elevator Pitch',
-    completed: false,
-    index: 4,
+      description: 'Write Elevator Pitch',
+      completed: false,
+      index: 4,
     },
 
   ];
@@ -65,4 +64,4 @@ describe('deleting a task from the list', () => {
   test('Update index after task deletion', () => {
     expect(myTasks[2].index).toBe(3);
   });
-})
+});
