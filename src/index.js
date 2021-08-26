@@ -52,6 +52,7 @@ function displayTasks() {
 
 clearAll.addEventListener('click', () => {
   clearChecked(myTasks);
+  window.location.reload();
 });
 
 // Add new task with enter icon
