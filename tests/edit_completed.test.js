@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import status from '../src/status.js';
-import { clearChecked } from '../src/add_remove.js'
+import { clearChecked } from '../src/add_remove.js';
 
 describe('updating the completed status of a task', () => {
   document.body.innerHTML = '<input type="checkbox" id="checkbox">';
@@ -36,7 +36,7 @@ describe('updating the completed status of a task', () => {
 });
 
 describe('clear completed tasks', () => {
-  const myTasks = [
+  let myTasks = [
     {
       description: 'Walk The Dog',
       completed: true,
@@ -56,8 +56,15 @@ describe('clear completed tasks', () => {
 
   ];
 
-  test('Update completed status to true', () => {
+  myTasks = myTasks.filter((task) => !task.completed);
+
+  test('Check array length after clearing completed tasks', () => {
     clearChecked(myTasks);
-    expect(myTasks[1].index).toBe(1);
+    expect(myTasks).toHaveLength(1);
+  });
+
+  test('Update index after clearing completed tasks', () => {
+    clearChecked(myTasks);
+    expect(myTasks[0].index).toBe(1);
   });
 });
