@@ -5,7 +5,6 @@ import status from '../src/status.js';
 import { editTask, clearChecked } from '../src/add_remove.js';
 
 describe('editing a task', () => {
-
   const myTasks = [
     {
       description: 'Walk The Dog',
@@ -21,21 +20,20 @@ describe('editing a task', () => {
 
   ];
 
-  document.body.innerHTML = `<p class="description" id="para"></p>`;
+  document.body.innerHTML = '<p class="description" id="para"></p>';
   const para = document.getElementById('para');
 
-  test('edit', () => {
+  test('if task description changes after edit', () => {
     para.innerHTML = 'Hello';
-    editTask(para, myTasks[0], myTasks)
+    editTask(para, myTasks[0], myTasks);
     expect(myTasks[0].description).not.toMatch('Walk The Dog');
   });
-  
-  test('edit', () => {
+
+  test('if task description changes after edit', () => {
     para.innerHTML = 'Hello';
-    editTask(para, myTasks[0], myTasks)
+    editTask(para, myTasks[0], myTasks);
     expect(myTasks[0].description).toMatch('Hello');
   });
-
 });
 
 describe('updating the completed status of a task', () => {
