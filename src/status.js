@@ -1,9 +1,7 @@
-function status(e, tasklist) {
-  if (e.target.classList.contains('unchecked')) {
-    e.target.classList.value = 'checked';
+function status(checkbox, tasklist) {
+  if (checkbox.checked) {
     tasklist.completed = true;
-  } else if (e.target.classList.contains('checked')) {
-    e.target.classList.value = 'unchecked';
+  } else {
     tasklist.completed = false;
   }
 }

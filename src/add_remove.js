@@ -10,25 +10,15 @@ function addTask(taskArray) {
   inputList.value = '';
 }
 
-function editTask(icon, text, i) {
-  const trashIcon = icon.nextSibling;
-  icon.addEventListener('click', () => {
-    text.setAttribute('contenteditable', 'true');
-    text.classList.add('inputEdit');
-    icon.style.display = 'none';
-    trashIcon.style.display = 'block';
-    const data = JSON.parse(localStorage.getItem('tasks'));
-    data[i].description = text.innerHTML;
-    text.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        data[i].description = text.innerHTML;
-        localStorage.setItem('tasks', JSON.stringify(data));
-        trashIcon.style.display = 'none';
-        icon.style.display = 'block';
-        text.classList.remove('inputEdit');
-        text.setAttribute('contenteditable', 'false');
-      }
-    });
+function editTask(text, task, taskArray) {
+  task.description = text.innerHTML;
+  text.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      task.description = text.innerHTML;
+      localStorage.setItem('tasks', JSON.stringify(taskArray));
+      text.classList.remove('inputEdit');
+      text.setAttribute('contenteditable', 'false');
+    }
   });
 }
 
@@ -46,7 +36,6 @@ function clearChecked(taskArray) {
     task.index = taskArray.indexOf(task) + 1;
   });
   localStorage.setItem('tasks', JSON.stringify(taskArray));
-  window.location.reload();
 }
 
 export {

@@ -18,8 +18,8 @@ function saveToStorage(taskArray) {
 // Display Tasks
 function displayTasks() {
   mainList.innerHTML = '';
-  for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTasks[i].description}</p></div><span><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></span>`;
+  myTasks.forEach((myTask) => {
+    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTask.description}</p></div><span><i class="far fa-trash-alt"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -29,38 +29,32 @@ function displayTasks() {
     const listInput = listItem.firstChild;
     const checkbox = listInput.firstChild;
     const para = listInput.lastChild;
-    const editIcon = listInput.nextSibling.firstChild;
-    const trashIcon = editIcon.nextSibling;
-    trashIcon.style.display = 'none';
+    const trashIcon = listInput.nextSibling.firstChild;
 
     // Update checkbox status
-    if (myTasks[i].completed) {
-      checkbox.classList.add('checked');
-      checkbox.checked = true;
-      checkbox.addEventListener('change', (e) => {
-        status(e, myTasks[i]);
-        saveToStorage(myTasks);
-      });
-    } else {
-      checkbox.classList.add('unchecked');
-      checkbox.addEventListener('change', (e) => {
-        status(e, myTasks[i]);
-        saveToStorage(myTasks);
-      });
-    }
+    checkbox.checked = myTask.completed;
+    checkbox.addEventListener('change', () => {
+      status(checkbox, myTask);
+      saveToStorage(myTasks);
+    });
 
     // Edit task
-    editTask(editIcon, para, i);
+    para.addEventListener('dblclick', () => {
+      para.setAttribute('contenteditable', 'true');
+      para.classList.add('inputEdit');
+      editTask(para, myTask, myTasks);
+    });
 
     trashIcon.addEventListener('click', () => {
-      deleteTask(myTasks, i);
-      window.location.reload();
+      deleteTask(myTasks, myTask);
+      displayTasks();
     });
-  }
+  });
 }
 
 clearAll.addEventListener('click', () => {
   clearChecked(myTasks);
+  window.location.reload();
 });
 
 // Add new task with enter icon
