@@ -10,18 +10,12 @@ function addTask(taskArray) {
   inputList.value = '';
 }
 
-function editTask(text, task, taskArray, trashIcon, editIcon) {
-  text.setAttribute('contenteditable', 'true');
-  text.classList.add('inputEdit');
-  editIcon.style.display = 'none';
-  trashIcon.style.display = 'block';
+function editTask(text, task, taskArray) {
   task.description = text.innerHTML;
   text.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       task.description = text.innerHTML;
       localStorage.setItem('tasks', JSON.stringify(taskArray));
-      trashIcon.style.display = 'none';
-      editIcon.style.display = 'block';
       text.classList.remove('inputEdit');
       text.setAttribute('contenteditable', 'false');
     }
