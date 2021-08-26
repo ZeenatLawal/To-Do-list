@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { addTask, deleteTask } from './src/add_remove.js';
+import { addTask, deleteTask } from '../src/add_remove.js';
 
 describe('adding a task to the list', () => {
   document.body.innerHTML = '<input type="text" placeholder="Add to your list..." id="inputList">';

@@ -34,20 +34,11 @@ function displayTasks() {
     trashIcon.style.display = 'none';
 
     // Update checkbox status
-    if (myTasks[i].completed) {
-      checkbox.classList.add('checked');
-      checkbox.checked = true;
-      checkbox.addEventListener('change', (e) => {
-        status(e, myTasks[i]);
-        saveToStorage(myTasks);
-      });
-    } else {
-      checkbox.classList.add('unchecked');
-      checkbox.addEventListener('change', (e) => {
-        status(e, myTasks[i]);
-        saveToStorage(myTasks);
-      });
-    }
+    checkbox.checked = myTasks[i].completed;
+    checkbox.addEventListener('change', () => {
+      status(checkbox, myTasks[i]);
+      saveToStorage(myTasks);
+    });
 
     // Edit task
     editTask(editIcon, para, i);
