@@ -18,8 +18,8 @@ function saveToStorage(taskArray) {
 // Display Tasks
 function displayTasks() {
   mainList.innerHTML = '';
-  for (let i = 0; i < myTasks.length; i += 1) {
-    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTasks[i].description}</p></div><span><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></span>`;
+  myTasks.forEach((myTask) => {
+    const content = `<div class="list-input"><input type="checkbox"> <p class="description">${myTask.description}</p></div><span><i class="far fa-edit"></i><i class="far fa-trash-alt"></i></span>`;
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${content}`;
@@ -34,20 +34,22 @@ function displayTasks() {
     trashIcon.style.display = 'none';
 
     // Update checkbox status
-    checkbox.checked = myTasks[i].completed;
+    checkbox.checked = myTask.completed;
     checkbox.addEventListener('change', () => {
-      status(checkbox, myTasks[i]);
+      status(checkbox, myTask);
       saveToStorage(myTasks);
     });
 
     // Edit task
-    editTask(editIcon, para, i);
+    editIcon.addEventListener('click', () => {
+      editTask(para, myTask, myTasks, trashIcon, editIcon);
+    });
 
     trashIcon.addEventListener('click', () => {
-      deleteTask(myTasks, i);
+      deleteTask(myTasks, myTask);
       window.location.reload();
     });
-  }
+  });
 }
 
 clearAll.addEventListener('click', () => {
