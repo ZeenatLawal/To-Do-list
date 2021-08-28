@@ -13,7 +13,7 @@
 
 ## Live demo
 
-[Live demo link](https://zeenatlawal.github.io/To-Do-list/)
+[Live demo link](https://zeenatlawal.github.io/To-Do-list/dist/)
 
 ## Getting Started
 
