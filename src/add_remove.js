@@ -19,7 +19,7 @@ function editTask(text, task, taskArray) {
     if (e.key === 'Enter') {
       task.description = text.innerHTML;
       localStorage.setItem('tasks', JSON.stringify(taskArray));
-      text.classList.remove('inputEdit');
+      text.parentElement.classList.remove('inputEdit');
       text.setAttribute('contenteditable', 'false');
     }
   });
