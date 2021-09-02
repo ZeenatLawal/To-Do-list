@@ -1,5 +1,8 @@
 function addTask(taskArray) {
   const inputList = document.getElementById('inputList');
+  if (inputList.value === '') {
+    return;
+  }
   const task = {
     description: inputList.value,
     completed: false,
@@ -22,8 +25,8 @@ function editTask(text, task, taskArray) {
   });
 }
 
-function deleteTask(taskArray, i) {
-  taskArray.splice(i, 1);
+function deleteTask(taskArray, delTask) {
+  taskArray = taskArray.filter((task) => task.index !== delTask.index);
   taskArray.forEach((task) => {
     task.index = taskArray.indexOf(task) + 1;
   });
