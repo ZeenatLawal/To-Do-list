@@ -41,7 +41,7 @@ function displayTasks() {
     // Edit task
     para.addEventListener('dblclick', () => {
       para.setAttribute('contenteditable', 'true');
-      para.classList.add('inputEdit');
+      para.parentElement.classList.add('inputEdit');
       editTask(para, myTask, myTasks);
     });
 
